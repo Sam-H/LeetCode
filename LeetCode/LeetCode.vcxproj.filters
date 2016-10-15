@@ -16,6 +16,9 @@
     <Filter Include="Fichiers sources\001_Two_Sum">
       <UniqueIdentifier>{eb935ce8-0672-46fe-b2d7-6f2f3b5b670a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\002_Add_Two_Numbers">
+      <UniqueIdentifier>{acf9cb64-0699-4283-92b6-80957494a7ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -32,6 +35,9 @@
     </ClInclude>
     <ClInclude Include="001_Two_Sum_HashTable.h">
       <Filter>Fichiers sources\001_Two_Sum</Filter>
+    </ClInclude>
+    <ClInclude Include="001_Add_Two_Numbers.h">
+      <Filter>Fichiers sources\002_Add_Two_Numbers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
