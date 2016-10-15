@@ -3,7 +3,7 @@
 
 using std::vector;
 
-class TwoSum {
+class TwoSum_BruteForce {
 public:
 	vector<int> twoSum(vector<int>& nums, int target) {
 

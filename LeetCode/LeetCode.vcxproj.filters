@@ -30,6 +30,9 @@
     <ClInclude Include="001_Two_Sum_BruteForce.h">
       <Filter>Fichiers sources\001_Two_Sum</Filter>
     </ClInclude>
+    <ClInclude Include="001_Two_Sum_HashTable.h">
+      <Filter>Fichiers sources\001_Two_Sum</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
