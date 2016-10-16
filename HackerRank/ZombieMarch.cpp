@@ -20,49 +20,56 @@ double norm(vector<double>& vect1, vector<double>& vect2)
 	return sqrt(norm);
 }
 
-
 vector<double> one_round(vector<double>& numb_zombies, vector<vector<int>>& roads, int n, int m, int nb_tours) {
 
 	vector<int> nb_adj(n);
-	int i, a, b, k, j;
-	vector<double> new_numb_zombies(n, 0);
+	vector<double> new_numb_zombies(n);
 
-	vector<vector<double>> adj(n, vector<double>(n,0));
+	for (int i = 0; i<n; i++) {
+		nb_adj[i] = 0;
+	}
 
-	// Construction de la liste d'adjacence
-	for (int i = 0; i < m; ++i) {
+	for (int i = 0; i<m; i++) {
 		nb_adj[roads[i][0]] += 1;
 		nb_adj[roads[i][1]] += 1;
-		++adj[roads[i][0]][roads[i][1]];
-		++adj[roads[i][1]][roads[i][0]];
 	}
 
-	for (int i = 0; i < n; ++i) 
-	{
-		for (int j = 0; j < n; ++j)
-		{
-			adj[i][j] = adj[i][j]/nb_adj[j];
+	int max_adj = nb_adj[0];
+
+	for (int i = 1; i<n; i++) {
+		if (nb_adj[i] > max_adj) {
+			max_adj = nb_adj[i];
 		}
 	}
 
+	vector<vector<double>> incomingProbability(n, vector<double>(max_adj));
+	vector<vector<int>> incomingSource(n, vector<int>(max_adj));
 
-	for (int q = 0; q < nb_tours; ++q)
+	for (int k = 0; k < m; ++k)
 	{
-		for (int i = 0; i < n; ++i)
-		{
-			for (int j = 0; j < n; ++j)
-			{
-				new_numb_zombies[i] += adj[i][j] * numb_zombies[j];
+		int i = roads[k][0];
+		int j = roads[k][1];
+
+		incomingSource[i].push_back(j);
+		incomingProbability[i].push_back(1.0 / nb_adj[j]);
+
+		incomingSource[j].push_back(i);
+		incomingProbability[j].push_back(1.0 / nb_adj[i]);
+	}
+
+	for (int q = 0; q < nb_tours; q++) {
+		for (int i = 0; i<n; i++) {
+			new_numb_zombies[i] = 0;
+			for (int k = 0; k < incomingSource[i].size(); k++) {
+				new_numb_zombies[i] += incomingProbability[i][k]*numb_zombies[incomingSource[i][k]];
 			}
 		}
-		if (norm(numb_zombies, new_numb_zombies) < 1e-8) break;
+		if (norm(new_numb_zombies, numb_zombies) < 1e-6) break;
 		numb_zombies = new_numb_zombies;
-		std::fill(new_numb_zombies.begin(), new_numb_zombies.end(), 0);
 	}
 
 	return numb_zombies;
 }
-
 
 int main() {
 
