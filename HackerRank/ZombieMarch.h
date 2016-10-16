@@ -1,4 +1,6 @@
-#include"stdafx.h" 
+#pragma once
+
+#include "stdafx.h"
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -61,7 +63,7 @@ vector<double> one_round(vector<double>& numb_zombies, vector<vector<int>>& road
 		for (int i = 0; i<n; i++) {
 			new_numb_zombies[i] = 0;
 			for (int k = 0; k < incomingSource[i].size(); k++) {
-				new_numb_zombies[i] += incomingProbability[i][k]*numb_zombies[incomingSource[i][k]];
+				new_numb_zombies[i] += incomingProbability[i][k] * numb_zombies[incomingSource[i][k]];
 			}
 		}
 		if (norm(new_numb_zombies, numb_zombies) < 1e-6) break;
@@ -71,7 +73,7 @@ vector<double> one_round(vector<double>& numb_zombies, vector<vector<int>>& road
 	return numb_zombies;
 }
 
-int main() {
+int ZombieMarch() {
 
 	std::istream* input_stream;
 	std::ifstream input("C:\\Users\\Samy\\Documents\\Visual Studio 2015\\Projects\\Programming Challenges\\HackerRank\\input06.txt");
@@ -107,7 +109,7 @@ int main() {
 			cout << nb_zombies[i] << " ";
 		}
 		cout << std::endl;
-	
+
 	}
 
 	return 0;
