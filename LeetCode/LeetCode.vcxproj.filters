@@ -13,11 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers sources\001_Two_Sum">
+    <Filter Include="Fichiers d%27en-tête\001_Two_Sum">
       <UniqueIdentifier>{eb935ce8-0672-46fe-b2d7-6f2f3b5b670a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\002_Add_Two_Numbers">
+    <Filter Include="Fichiers d%27en-tête\002_Add_Two_Numbers">
       <UniqueIdentifier>{acf9cb64-0699-4283-92b6-80957494a7ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\021_Merge_Two_Sorted_Lists">
+      <UniqueIdentifier>{64e25297-6319-47f1-9bbc-eb1115d533e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,13 +34,16 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="001_Two_Sum_BruteForce.h">
-      <Filter>Fichiers sources\001_Two_Sum</Filter>
+      <Filter>Fichiers d%27en-tête\001_Two_Sum</Filter>
     </ClInclude>
     <ClInclude Include="001_Two_Sum_HashTable.h">
-      <Filter>Fichiers sources\001_Two_Sum</Filter>
+      <Filter>Fichiers d%27en-tête\001_Two_Sum</Filter>
     </ClInclude>
     <ClInclude Include="001_Add_Two_Numbers.h">
-      <Filter>Fichiers sources\002_Add_Two_Numbers</Filter>
+      <Filter>Fichiers d%27en-tête\002_Add_Two_Numbers</Filter>
+    </ClInclude>
+    <ClInclude Include="MergeTwoSortedLists.h">
+      <Filter>Fichiers d%27en-tête\021_Merge_Two_Sorted_Lists</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
