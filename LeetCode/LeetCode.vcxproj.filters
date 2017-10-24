@@ -25,6 +25,9 @@
     <Filter Include="Fichiers d%27en-tête\050_Power">
       <UniqueIdentifier>{9a7131fd-4200-42b4-a1ef-5025c3c4e73c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\138_Copy_List_with_Random_Pointer">
+      <UniqueIdentifier>{44ae069d-9803-4b09-a6e7-ea02a1394a58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -53,6 +56,9 @@
     </ClInclude>
     <ClInclude Include="Power_Using_Products.h">
       <Filter>Fichiers d%27en-tête\050_Power</Filter>
+    </ClInclude>
+    <ClInclude Include="Copy_List_with_Random_Pointer.h">
+      <Filter>Fichiers d%27en-tête\138_Copy_List_with_Random_Pointer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

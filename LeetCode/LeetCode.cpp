@@ -4,20 +4,19 @@
 #include "stdafx.h"
 #include <vector>
 #include <iostream>
-//#define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
-//#include <crtdbg.h>
-#include "Power_Using_Products.h"
+#include "Copy_List_with_Random_Pointer.h"
 
 int main()
 {
 	
 	Solution tester;
-	double result = tester.myPow(2, -4);
-	_CrtDumpMemoryLeaks();
 
-	std::cout << result << std::endl;
+	RandomListNode initialList(-1);
+	RandomListNode node(-1);
+
+	initialList.next = &node;
+	RandomListNode* copy = tester.copyRandomList(&initialList);
 
     return 0;
 }
-

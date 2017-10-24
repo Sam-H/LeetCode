@@ -1,12 +1,10 @@
 #pragma once
 
-#include "stdafx.h"
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <algorithm>
 #include <functional>
-#include <complex>
 
 using std::vector;
 using std::cin;
@@ -76,7 +74,7 @@ vector<double> one_round(vector<double>& numb_zombies, vector<vector<int>>& road
 int ZombieMarch() {
 
 	std::istream* input_stream;
-	std::ifstream input("C:\\Users\\Samy\\Documents\\Visual Studio 2015\\Projects\\Programming Challenges\\HackerRank\\input06.txt");
+	std::ifstream input("C:\\Users\\samyh\\Downloads\\input09.txt");
 	input_stream = &input;
 	//input_stream = &cin;
 
