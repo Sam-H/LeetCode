@@ -1,5 +1,5 @@
 #pragma once
-#include <map>
+#include <unordered_map>
 #include <utility>
 
 /* Definition for singly-linked list with a random pointer. */
@@ -15,10 +15,10 @@ public:
 	{
 
 		RandomListNode* newHead = nullptr;
-		std::map<RandomListNode*, RandomListNode*>                        newNodesMap;
-		std::map<RandomListNode*, std::vector<RandomListNode*>>           wantedNodesMap;
-		std::map<RandomListNode*, RandomListNode*>::iterator              ItNewNodesMap;
-		std::map<RandomListNode*, std::vector<RandomListNode*>>::iterator ItwantedNodesMap;
+		std::unordered_map<RandomListNode*, RandomListNode*>                        newNodesMap;
+		std::unordered_map<RandomListNode*, std::vector<RandomListNode*>>           wantedNodesMap;
+		std::unordered_map<RandomListNode*, RandomListNode*>::iterator              ItNewNodesMap;
+		std::unordered_map<RandomListNode*, std::vector<RandomListNode*>>::iterator ItwantedNodesMap;
 
 		RandomListNode* currNode = head;
 		RandomListNode* newTail = new RandomListNode(-1);
@@ -49,7 +49,9 @@ public:
 					}
 					else
 					{
-						wantedNodesMap.insert(std::pair < RandomListNode*, std::vector<RandomListNode*>>(currNode->random, std::vector<RandomListNode*>(1, newNode)));
+						std::vector<RandomListNode*> vect(1, newNode);
+						vect.reserve(10);
+						wantedNodesMap.insert(std::pair < RandomListNode*, std::vector<RandomListNode*>>(currNode->random, vect));
 					}
 				}
 			}
