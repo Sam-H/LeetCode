@@ -15,70 +15,85 @@ public:
 	{
 
 		RandomListNode* newHead = nullptr;
-		std::unordered_map<RandomListNode*, RandomListNode*>                        newNodesMap;
-		std::unordered_map<RandomListNode*, std::vector<RandomListNode*>>           wantedNodesMap;
-		std::unordered_map<RandomListNode*, RandomListNode*>::iterator              ItNewNodesMap;
-		std::unordered_map<RandomListNode*, std::vector<RandomListNode*>>::iterator ItwantedNodesMap;
 
-		RandomListNode* currNode = head;
-		RandomListNode* newTail = new RandomListNode(-1);
-		RandomListNode* newNode = nullptr;
-
-		while (currNode != nullptr)
+		if (head != nullptr)
 		{
-			// Create new node, register in map
-			newNode = new RandomListNode(currNode->label);
-			newNodesMap.insert(std::pair<RandomListNode*, RandomListNode*>(currNode, newNode));
-
-			// Is there a random pointer ?
-			if (currNode->random != nullptr)
+			std::unordered_map<RandomListNode*, RandomListNode*>                        newNodesMap;
+			std::unordered_map<RandomListNode*, std::vector<RandomListNode*>>           wantedNodesMap;
+			std::unordered_map<RandomListNode*, RandomListNode*>::iterator              ItNewNodesMap;
+			std::unordered_map<RandomListNode*, std::vector<RandomListNode*>>::iterator ItwantedNodesMap;
+	
+			RandomListNode* currNode = head;
+			
+			newHead = new RandomListNode(head->label);
+			
+			if (head->random == head)
 			{
-				if (currNode->random == currNode)
+				newHead->random = newHead;
+			} else
+			{
+				std::vector<RandomListNode*> vect(1, newHead);
+				vect.reserve(10);
+				wantedNodesMap.insert(std::pair < RandomListNode*, std::vector<RandomListNode*>>(head->random, vect));
+			}
+
+			newNodesMap.insert(std::pair<RandomListNode*, RandomListNode*>(head, newHead));
+
+			RandomListNode* newNode = newHead;
+	
+			while (currNode->next != nullptr)
+			{
+				// Create new node, register in map
+				newNode->next = new RandomListNode(currNode->next->label);
+				newNodesMap.insert(std::pair<RandomListNode*, RandomListNode*>(currNode->next, newNode->next));
+	
+				// Is there a random pointer ?
+				if (currNode->next->random != nullptr)
 				{
-					newNode->random = newNode;
-				}
-				else if ((ItNewNodesMap = newNodesMap.find(currNode->random)) != newNodesMap.end())
-				{
-					newNode->random = (*ItNewNodesMap).second;
-				}
-				else
-				{
-					if ((ItwantedNodesMap = wantedNodesMap.find(currNode->random)) != wantedNodesMap.end())
+					if (currNode->next->random == currNode->next)
 					{
-						((*ItwantedNodesMap).second).push_back(newNode);
+						newNode->next->random = newNode->next;
+					}
+					else if ((ItNewNodesMap = newNodesMap.find(currNode->next->random)) != newNodesMap.end())
+					{
+						newNode->next->random = (*ItNewNodesMap).second;
 					}
 					else
 					{
-						std::vector<RandomListNode*> vect(1, newNode);
-						vect.reserve(10);
-						wantedNodesMap.insert(std::pair < RandomListNode*, std::vector<RandomListNode*>>(currNode->random, vect));
+						if ((ItwantedNodesMap = wantedNodesMap.find(currNode->next->random)) != wantedNodesMap.end())
+						{
+							((*ItwantedNodesMap).second).push_back(newNode->next);
+						}
+						else
+						{
+							std::vector<RandomListNode*> vect(1, newNode->next);
+							vect.reserve(10);
+							wantedNodesMap.insert(std::pair < RandomListNode*, std::vector<RandomListNode*>>(currNode->next->random, vect));
+						}
 					}
 				}
-			}
-
-			// Am I pointed to by a random pointer ?
-
-			if ((ItwantedNodesMap = wantedNodesMap.find(currNode)) != wantedNodesMap.end())
-			{
-				const std::pair < RandomListNode*, std::vector<RandomListNode*>> & pair = *ItwantedNodesMap;
-				const std::vector<RandomListNode*> & vect = pair.second;
-
-				for (std::vector<RandomListNode*>::const_iterator it = vect.begin(); it != vect.end(); ++it)
+	
+				// Am I pointed to by a random pointer ?
+	
+				if ((ItwantedNodesMap = wantedNodesMap.find(currNode->next)) != wantedNodesMap.end())
 				{
-					(*it)->random = newNode;
+					const std::pair < RandomListNode*, std::vector<RandomListNode*>> & pair = *ItwantedNodesMap;
+					const std::vector<RandomListNode*> & vect = pair.second;
+	
+					for (std::vector<RandomListNode*>::const_iterator it = vect.begin(); it != vect.end(); ++it)
+					{
+						(*it)->random = newNode->next;
+					}
 				}
+	
+				// Link with new list
+				currNode = currNode->next;
+				newNode = newNode->next;
 			}
-
-			// Link with new list
-			currNode = currNode->next;
-			newTail->next = newNode;
-			if (newHead == nullptr) newHead = newTail->next;
-			newTail = newTail->next;
-
+	
 		}
 
 		return newHead;
-
 	}
 
 };
