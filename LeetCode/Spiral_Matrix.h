@@ -28,7 +28,7 @@ public:
 				if (bForwardSweep)
 				{
 					// Add all remaining elements of starting row.
-					Vector & vecAll = *(matrix.begin() + nQuotient);
+					const Vector & vecAll = *(matrix.begin() + nQuotient);
 					for (Vector::const_iterator it = vecAll.begin() + nQuotient; it != vecAll.end() - nQuotient; ++ it)
 					{
 						result.push_back(*it);
@@ -42,8 +42,7 @@ public:
 				}
 				else
 				{
-					Vector & vecAll = *(matrix.rbegin() + nQuotient);
-
+					const Vector & vecAll = *(matrix.rbegin() + nQuotient);
 					// Add all remaining elements of starting row.
 					for (Vector::const_reverse_iterator it = vecAll.rbegin() + nQuotient + 1; it != vecAll.rend() - nQuotient; ++it)
 					{
