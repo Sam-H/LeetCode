@@ -28,6 +28,9 @@
     <Filter Include="Fichiers d%27en-tête\138_Copy_List_with_Random_Pointer">
       <UniqueIdentifier>{44ae069d-9803-4b09-a6e7-ea02a1394a58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\054_Spiral_Matrix">
+      <UniqueIdentifier>{06860c6b-f8f2-432c-b45a-64553f919a33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -59,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="Copy_List_with_Random_Pointer.h">
       <Filter>Fichiers d%27en-tête\138_Copy_List_with_Random_Pointer</Filter>
+    </ClInclude>
+    <ClInclude Include="Spiral_Matrix.h">
+      <Filter>Fichiers d%27en-tête\054_Spiral_Matrix</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

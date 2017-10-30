@@ -5,18 +5,15 @@
 #include <vector>
 #include <iostream>
 #include <stdlib.h>
-#include "Copy_List_with_Random_Pointer.h"
+#include "Spiral_Matrix.h"
 
 int main()
 {
 	
 	Solution tester;
 
-	RandomListNode initialList(-1);
-	RandomListNode node(-1);
-
-	initialList.next = &node;
-	RandomListNode* copy = tester.copyRandomList(&initialList);
+	Solution::Matrix mat = { {1,2,3}, {4,5,6}, {7,8,9}};
+	Solution::Vector vec = tester.spiralOrder(mat);
 
     return 0;
 }
