@@ -26,33 +26,33 @@ public:
 
 				if (bForwardSweep)
 				{
-					Vector & vecAll = *(result.begin() + nQuotient);
-					for (Vector::iterator it = vecAll.begin() + nQuotient; it != vecAll.end() - nQuotient; ++it)
+					Vector & vecAll = *std::next(result.begin(), nQuotient);
+					for (Vector::iterator it = std::next(vecAll.begin(),nQuotient); it != std::prev(vecAll.end(), nQuotient); ++it)
 					{
 						*it = nCounter;
 						++nCounter;
 					}
 
-					for (Matrix::iterator it = result.begin() + nQuotient + 1; it != (result.end() - nQuotient); ++it)
+					for (Matrix::iterator it = std::next(result.begin(), nQuotient + 1); it != std::prev(result.end(), nQuotient); ++it)
 					{
-						*((*it).rbegin() + nQuotient) = nCounter;
+						*(std::next((*it).rbegin(), nQuotient)) = nCounter;
 						++nCounter;
 					}
 
 				}
 				else
 				{
-					Vector & vecAll = *(result.rbegin() + nQuotient);
+					Vector & vecAll = *std::next(result.rbegin(), nQuotient);
 
-					for (Vector::reverse_iterator it = vecAll.rbegin() + nQuotient + 1; it != vecAll.rend() - nQuotient; ++it)
+					for (Vector::reverse_iterator it = std::next(vecAll.rbegin(), nQuotient + 1); it != std::prev(vecAll.rend(), nQuotient); ++it)
 					{
 						*it = nCounter;
 						++nCounter;
 					}
 
-					for (Matrix::reverse_iterator it = result.rbegin() + nQuotient + 1; it != result.rend() - (nQuotient + 1); ++it)
+					for (Matrix::reverse_iterator it = std::next(result.rbegin(), nQuotient + 1); it != std::prev(result.rend() ,nQuotient + 1); ++it)
 					{
-						*((*it).begin() + nQuotient) = nCounter;
+						*(std::next((*it).begin(), nQuotient)) = nCounter;
 						++nCounter;
 					}
 				}

@@ -28,30 +28,30 @@ public:
 				if (bForwardSweep)
 				{
 					// Add all remaining elements of starting row.
-					const Vector & vecAll = *(matrix.begin() + nQuotient);
-					for (Vector::const_iterator it = vecAll.begin() + nQuotient; it != vecAll.end() - nQuotient; ++ it)
+					const Vector & vecAll = *(std::next(matrix.begin(), nQuotient));
+					for (Vector::const_iterator it = std::next(vecAll.begin(), nQuotient); it != std::prev(vecAll.end(), nQuotient); ++ it)
 					{
 						result.push_back(*it);
 					}
 
-					for (Matrix::const_iterator it = matrix.begin() + nQuotient + 1; it != (matrix.end() - nQuotient);++it)
+					for (Matrix::const_iterator it = std::next(matrix.begin(), nQuotient + 1); it != std::prev(matrix.end(), nQuotient);++it)
 					{
-						result.push_back(*((*it).rbegin() + nQuotient));
+						result.push_back(*(std::next((*it).rbegin(), nQuotient)));
 					}
 	
 				}
 				else
 				{
-					const Vector & vecAll = *(matrix.rbegin() + nQuotient);
+					const Vector & vecAll = *(std::next(matrix.rbegin(), nQuotient));
 					// Add all remaining elements of starting row.
-					for (Vector::const_reverse_iterator it = vecAll.rbegin() + nQuotient + 1; it != vecAll.rend() - nQuotient; ++it)
+					for (Vector::const_reverse_iterator it = std::next(vecAll.rbegin(), nQuotient + 1); it != std::prev(vecAll.rend(), nQuotient); ++it)
 					{
 						result.push_back(*it);
 					}
 
-					for (Matrix::const_reverse_iterator it = matrix.rbegin() + nQuotient + 1; it != matrix.rend() - (nQuotient + 1); ++it)
+					for (Matrix::const_reverse_iterator it = std::next(matrix.rbegin(), nQuotient + 1); it != std::prev(matrix.rend(),nQuotient + 1); ++it)
 					{
-						result.push_back(*((*it).begin() + nQuotient));
+						result.push_back(*(std::next((*it).begin(), nQuotient)));
 					}
 				}
 				
