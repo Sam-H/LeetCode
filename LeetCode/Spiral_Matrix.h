@@ -1,5 +1,5 @@
 #include <vector>
-
+#include <algorithm>
 class Solution {
 
 public:
@@ -18,9 +18,8 @@ public:
 
 			result.reserve(nNbCols * nNbCols);
 
-			int nSweeps = 0;
 
-			while (result.size() != nNbRows *nNbCols)
+			for (int nSweeps = 0; nSweeps < std::min(nNbRows, nNbCols); ++nSweeps)
 			{
 				bool bForwardSweep = nSweeps % 2 == 0;
 				int  nQuotient     = nSweeps / 2;
@@ -55,7 +54,6 @@ public:
 					}
 				}
 				
-				++nSweeps;
 			}
 
 		}
