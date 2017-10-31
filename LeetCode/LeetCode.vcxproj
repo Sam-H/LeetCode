@@ -154,6 +154,7 @@
     <ClInclude Include="PowerUsingExponential.h" />
     <ClInclude Include="Power_Using_Products.h" />
     <ClInclude Include="Spiral_Matrix.h" />
+    <ClInclude Include="Spiral_Matrix_2.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="001_Two_Sum_BruteForce.h" />

@@ -31,6 +31,9 @@
     <Filter Include="Fichiers d%27en-tête\054_Spiral_Matrix">
       <UniqueIdentifier>{06860c6b-f8f2-432c-b45a-64553f919a33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\059_Spiral_Matrix_2">
+      <UniqueIdentifier>{7ec7d8f5-08b2-40f3-8bf7-ae09d0433380}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -65,6 +68,9 @@
     </ClInclude>
     <ClInclude Include="Spiral_Matrix.h">
       <Filter>Fichiers d%27en-tête\054_Spiral_Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Spiral_Matrix_2.h">
+      <Filter>Fichiers d%27en-tête\059_Spiral_Matrix_2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
