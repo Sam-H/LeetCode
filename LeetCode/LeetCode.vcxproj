@@ -47,7 +47,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>Intel C++ Compiler 18.0</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -150,6 +150,7 @@
     <ClInclude Include="001_Add_Two_Numbers.h" />
     <ClInclude Include="001_Two_Sum_HashTable.h" />
     <ClInclude Include="Copy_List_with_Random_Pointer.h" />
+    <ClInclude Include="Trapping_Rain_Water_1.h" />
     <ClInclude Include="MergeTwoSortedLists.h" />
     <ClInclude Include="PowerUsingExponential.h" />
     <ClInclude Include="Power_Using_Products.h" />

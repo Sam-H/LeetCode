@@ -34,6 +34,9 @@
     <Filter Include="Fichiers d%27en-tête\059_Spiral_Matrix_2">
       <UniqueIdentifier>{7ec7d8f5-08b2-40f3-8bf7-ae09d0433380}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\042_Trapping_Rain_Water">
+      <UniqueIdentifier>{8170e24f-d318-482d-b05e-678ef32de6c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -71,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="Spiral_Matrix_2.h">
       <Filter>Fichiers d%27en-tête\059_Spiral_Matrix_2</Filter>
+    </ClInclude>
+    <ClInclude Include="Trapping_Rain_Water_1.h">
+      <Filter>Fichiers d%27en-tête\042_Trapping_Rain_Water</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
